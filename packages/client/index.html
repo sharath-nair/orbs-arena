@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Orbs Arena</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #0f1220; font-family: ui-sans-serif, system-ui, sans-serif; color: #e8ecff; }
+      canvas { display: block; width: 100vw; height: 100vh; touch-action: none; }
+      #menu { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(8, 10, 20, 0.72); backdrop-filter: blur(4px); }
+      #menu.hidden { display: none; }
+      .card { background: #181c30; border: 1px solid #2c3354; border-radius: 16px; padding: 28px; width: min(360px, 88vw); text-align: center; }
+      .card h1 { margin: 0 0 4px; font-size: 28px; }
+      .card p { margin: 0 0 16px; color: #8b93b8; font-size: 14px; }
+      #msg { color: #ff8a8a; min-height: 20px; margin-bottom: 8px; font-size: 14px; }
+      input, button { font: inherit; border-radius: 10px; border: 1px solid #3a4270; padding: 12px 14px; width: 100%; box-sizing: border-box; }
+      input { background: #10132a; color: inherit; margin-bottom: 10px; }
+      button { background: #5b6cff; border-color: #5b6cff; color: white; cursor: pointer; font-weight: 600; }
+      button:disabled { opacity: 0.5; cursor: default; }
+      .keys { margin-top: 14px; font-size: 12px; color: #6f78a3; line-height: 1.7; text-align: left; }
+      kbd { background: #10132a; border: 1px solid #2c3354; border-radius: 4px; padding: 1px 5px; }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <div id="menu">
+      <div class="card">
+        <h1>Orbs Arena</h1>
+        <p>Move with the mouse. Eat food, eat smaller orbs.</p>
+        <div id="msg"></div>
+        <input id="name" maxlength="16" placeholder="Your name" autocomplete="off" />
+        <button id="play" disabled>Connecting…</button>
+        <div class="keys">
+          <kbd>L</kbd> cycle simulated latency &nbsp; <kbd>P</kbd> client prediction on/off<br />
+          <kbd>I</kbd> interpolation on/off &nbsp; <kbd>G</kbd> show server ghost &nbsp; <kbd>H</kbd> hide HUD<br />
+          URL params: <code>?lag=150&amp;jitter=40</code> (one-way ms)
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
